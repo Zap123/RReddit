@@ -5,8 +5,8 @@ import { List, ListItem, ListDivider } from 'material-ui';
 
 export default class ThreadList extends React.Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = { data: [] }
     }
 
@@ -23,10 +23,11 @@ export default class ThreadList extends React.Component {
             <List>
                 {
                     this.state.data.map(function(item, index) {
-                        return <ThreadItem data={item} key={index} />
+                        return <ThreadItem data={item} key={index}/>
                     })
                 }
             </List>
         )
     }
+
 }

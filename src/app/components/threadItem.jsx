@@ -3,7 +3,7 @@ import Story from './story.jsx'
 
 import { List, ListItem, ListDivider, Avatar, ContentSend } from 'material-ui'
 
-export default class ThreadItem extends React.component {
+export default class ThreadItem extends React.Component {
 
     constructor(props) {
         super(props)
