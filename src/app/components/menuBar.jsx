@@ -1,11 +1,11 @@
 let React = require('react');
-import {AppBar} from 'material-ui';
+import { AppBar } from 'material-ui';
 
-let MenuBar = React.createClass({render() {
+let RReddit = React.createClass({render() {
     return (
-      <AppBar title="ЯReddit"/>
+      
     );
   }
 });
 
-module.exports = MenuBar;
+module.exports = RReddit;

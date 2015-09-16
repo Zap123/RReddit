@@ -1,39 +1,38 @@
-let React = require('react');
-let mui = require('material-ui');
-let RaisedButton = mui.RaisedButton;
-let Dialog = mui.Dialog;
-let ThemeManager = new mui.Styles.ThemeManager();
-let Colors = mui.Styles.Colors;
-let MenuBar = require('./menuBar.jsx'); // Our custom react component
-let ThreadList = require('./threadList.jsx'); // Our custom react component
+import React from 'react'
+import ThreadList from './threadList.jsx'
+import { RaisedButton, Dialog, AppBar, Styles } from 'material-ui'
 
-let Main = React.createClass({
+let ThemeManager = new Styles.ThemeManager(),
+    Colors = Styles.Colors
 
-  childContextTypes: {
-    muiTheme: React.PropTypes.object
-  },
+export default class Main extends React.Component {
 
-  getChildContext() {
-    return {
-      muiTheme: ThemeManager.getCurrentTheme()
-    };
-  },
+    static childContextTypes = {
+        muiTheme: React.PropTypes.object
+    }
 
-  componentWillMount() {
-    ThemeManager.setPalette({
-      accent1Color: Colors.deepOrange500
-    });
-  },
+    constructor(props) {
+        super(props)
+    }
 
-  render() {
+    getChildContext() {
+        return {
+            muiTheme: ThemeManager.getCurrentTheme()
+        }
+    }
 
-    return (
-      <div>
-        <MenuBar/>
-        <ThreadList/>
-      </div>
-    );
-  }
-});
+    componentWillMount() {
+        ThemeManager.setPalette({
+            accent1Color: Colors.deepOrange500
+        })
+    }
 
-module.exports = Main;
+    render() {
+        return (
+            <div>
+                <AppBar title="ЯReddit"/>
+                <ThreadList/>
+            </div>
+        )
+    }
+}
