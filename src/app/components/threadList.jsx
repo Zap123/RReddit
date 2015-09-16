@@ -1,5 +1,5 @@
 import React      from 'react'
-import request    from 'superagent'
+import Reddit    from '../utils/redditAPI.js'
 import ThreadItem from './threadItem.jsx'
 import { List, ListItem, ListDivider } from 'material-ui';
 
@@ -11,10 +11,8 @@ export default class ThreadList extends React.Component {
     }
 
     componentDidMount() {
-        request.get('https://www.reddit.com/.json').end((err, res) => {
-            this.setState({
-                data: res.body.data.children
-            })
+        Reddit.getHome().then((obj) => {
+            this.setState(obj)
         })
     }
 
