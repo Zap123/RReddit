@@ -22,7 +22,7 @@ export default class ThreadList extends React.Component {
         return (
             <List>
                 {
-                    this.state.data.map(function(item, index) {
+                    this.state.data.map((item, index) => {
                         return <ThreadItem data={item} key={index}/>
                     })
                 }
