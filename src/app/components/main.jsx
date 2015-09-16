@@ -1,4 +1,4 @@
-import React from 'react'
+import React      from 'react'
 import ThreadList from './threadList.jsx'
 import { RaisedButton, Dialog, AppBar, Styles } from 'material-ui'
 
