@@ -11,6 +11,7 @@ var watchify     = require('watchify');
 var bundleLogger = require('../util/bundleLogger');
 var gulp         = require('gulp');
 var handleErrors = require('../util/handleErrors');
+var errorify     = require('errorify');
 var source       = require('vinyl-source-stream');
 var config       = require('../config').browserify;
 var babelify     = require('babelify');
@@ -37,9 +38,10 @@ gulp.task('browserify', function(callback) {
       bundleLogger.start(bundleConfig.outputName);
 
       return bundler
+        .plugin(errorify)
         .bundle()
         // Report compile errors
-        .on('error', handleErrors)
+        //.on('error', handleErrors)
         // Use vinyl-source-stream to make the
         // stream gulp compatible. Specifiy the
         // desired output filename here.
