@@ -11,7 +11,7 @@ export default class Thumbnail extends React.Component {
             isImg = true,
             size = 80
 
-        if (!src || src === 'self' || src === 'nsfw') {
+        if (!src || src === 'self' || src === 'nsfw'|| src ==='default') {
             isImg = false
         }
 
