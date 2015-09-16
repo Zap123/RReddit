@@ -11,11 +11,11 @@ export default class ThreadList extends React.Component {
     }
 
     componentDidMount() {
-        request.get('https://www.reddit.com/.json').end(function(err, res) {
+        request.get('https://www.reddit.com/.json').end((err, res) => {
             this.setState({
                 data: res.body.data.children
             })
-        }.bind(this))
+        })
     }
 
     render() {
