@@ -1,15 +1,18 @@
 import React from 'react'
 
-let Upvotes = React.createClass({
-  render() {
-      return (
-        <div>
-          <center>⬆</center> <p/>
-          {this.props.score}<p/>
-          <center>⬇</center>
-        </div>
-      )
-}
-});
+export default class Upvotes extends React.Component {
 
-module.exports = Upvotes
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return (
+            <div>
+                <center>⬆</center> <p/>
+                {this.props.score}<p/>
+                <center>⬇</center>
+            </div>
+        )
+    }
+}
