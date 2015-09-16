@@ -1,26 +1,29 @@
-let React = require('react');
-import {List, ListItem, ListDivider, Avatar,ContentSend} from 'material-ui';
-let Story = require('./story.jsx'); // Our custom react component
+import React from 'react'
+import Story from './story.jsx'
 
-let ThreadItem = React.createClass({render() {
-    let thread = this.props.data.data,
-      date = new Date((thread.created_utc * 1000)),
-      secondaryText = `${thread.subreddit}  ${thread.author}  ${thread.created_utc} ago ${thread.num_comments} comments`
+import { List, ListItem, ListDivider, Avatar, ContentSend } from 'material-ui'
 
-    return (
-      <ListItem onTouchTap={this.openStory} 
-        primaryText={<Story thumbnail={thread.thumbnail}
-          title={thread.title}
-          subtitle={secondaryText}
-          score={thread.score}
-          />
-        }/>
-    );
-  },
+export default class ThreadItem extends React.component {
 
-  openStory() {
-    window.open(this.props.data.data.url, '_blank')
-  }
-});
+    constructor(props) {
+        super(props)
+    }
 
-module.exports = ThreadItem;
+    openStory() {
+        window.open(this.props.data.data.url, '_blank')
+    }
+
+    render() {
+        let thread = this.props.data.data,
+            date = new Date((thread.created_utc * 1000)),
+            secondaryText = `${thread.subreddit} ${thread.author} ${thread.created_utc} ago ${thread.num_comments} comments`
+
+        return (
+            <ListItem onTouchTap={this.openStory}
+                      primaryText={<Story thumbnail={thread.thumbnail}
+                                          title={thread.title}
+                                          subtitle={secondaryText}
+                                          score={thread.score} />} />
+        )
+    }
+}

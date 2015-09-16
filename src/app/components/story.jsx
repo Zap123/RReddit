@@ -4,6 +4,10 @@ import Upvotes   from './upvote.jsx'
 
 export default class Story extends React.Component {
 
+    constructor(props) {
+        super(props)
+    }
+
     render() {
         let storyStyle = {
           display: 'flex',
