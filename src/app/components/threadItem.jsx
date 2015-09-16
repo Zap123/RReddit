@@ -22,7 +22,7 @@ export default class ThreadItem extends React.Component {
                 ${thread.num_comments} comments`
 
         return (
-            <ListItem onTouchTap={this.openStory}
+            <ListItem onTouchTap={() => this.openStory()}
                       primaryText={<Story thumbnail={thread.thumbnail}
                                           title={thread.title}
                                           subtitle={secondaryText}
