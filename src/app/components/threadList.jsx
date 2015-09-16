@@ -1,30 +1,32 @@
-let React = require('react');
-let request = require('superagent');
-let ThreadItem = require('./threadItem.jsx'); // Our custom react component
-import {List, ListItem, ListDivider} from 'material-ui';
+import React      from 'react'
+import request    from 'superagent'
+import ThreadItem from './threadItem.jsx'
+import { List, ListItem, ListDivider } from 'material-ui';
 
-let ThreadList = React.createClass({getInitialState() {
-    return {
-      data: []
-    };
-  },
-  componentDidMount() {
-    request.get('https://www.reddit.com/.json').end(function(err, res) {
-      this.setState({
-        data: res.body.data.children
-      });
-    }.bind(this));
-  },
-  render() {
-    let thread = this.state.data.map(function(item, index) {
-      return (
-        <ThreadItem data={item} key={index}/>
-      );
-    });
-    return (
-      <List>{thread}</List>
-    );
-  }
-});
+export default class ThreadList extends React.Component {
 
-module.exports = ThreadList;
+    constructor(props) {
+        super(props)
+        this.state = { data: [] }
+    }
+
+    componentDidMount() {
+        request.get('https://www.reddit.com/.json').end(function(err, res) {
+            this.setState({
+                data: res.body.data.children
+            })
+        }.bind(this))
+    }
+
+    render() {
+        return (
+            <List>
+                {
+                    this.state.data.map(function(item, index) {
+                        return <ThreadItem data={item} key={index} />
+                    })
+                }
+            </List>
+        )
+    }
+}
