@@ -12,6 +12,8 @@ let Thumbnail = React.createClass({render() {
       height: size,
       width: size,
       borderRadius: '15px',
+      userSelect: 'none',
+      userDrag: 'none',
       marginLeft: '15px',
       marginRight: '15px'
     }
