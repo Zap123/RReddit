@@ -11,16 +11,19 @@ let Thumbnail = React.createClass({render() {
     let styles = {
       height: size,
       width: size,
-      borderRadius: '30px',
-      padding:'20px'
+      borderRadius: '15px',
+      marginLeft: '15px',
+      marginRight: '15px'
     }
 
     if (isImg) {
       return (
-          <div><img style={styles} src={src}/></div>
+        <div><img src={src} style={styles}/></div>
       )
     } else {
-      return false
+      return <span style={{
+          marginLeft: '15px'
+        }}></span>
     }
   }
 });

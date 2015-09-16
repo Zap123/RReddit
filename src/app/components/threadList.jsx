@@ -17,13 +17,13 @@ let ThreadList = React.createClass({getInitialState() {
   },
   render() {
     let thread = this.state.data.map(function(item, index) {
-      return (<ThreadItem data={item} key={index} />
-);
+      return (
+        <ThreadItem data={item} key={index}/>
+      );
     });
     return (
       <List>{thread}</List>
     );
-
   }
 });
 
