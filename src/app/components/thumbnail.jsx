@@ -1,33 +1,37 @@
-let React = require('react');
+import React from 'react'
 
-let Thumbnail = React.createClass({render() {
-    let src = this.props.src
-    let isImg = true
-    if (!src || src === 'self' || src === 'nsfw') {
-      isImg = false
-    }
-    let size = 80
+export default class Thumbnail extends React.Component {
 
-    let styles = {
-      height: size,
-      width: size,
-      borderRadius: '15px',
-      userSelect: 'none',
-      userDrag: 'none',
-      marginLeft: '15px',
-      marginRight: '15px'
+    constructor(props) {
+        super(props)
     }
 
-    if (isImg) {
-      return (
-        <div><img src={src} style={styles}/></div>
-      )
-    } else {
-      return <span style={{
-          marginLeft: '15px'
-        }}></span>
-    }
-  }
-});
+    render() {
+        let src = this.props.src,
+            isImg = true,
+            size = 80
 
-module.exports = Thumbnail
+        if (!src || src === 'self' || src === 'nsfw') {
+            isImg = false
+        }
+
+        let styles = {
+          height: size,
+          width: size,
+          borderRadius: '15px',
+          userSelect: 'none',
+          userDrag: 'none',
+          marginLeft: '15px',
+          marginRight: '15px'
+        }
+
+        return (
+            <div>
+                {
+                    isImg ? <img src={src} style={styles}/> :
+                            <span style={{marginLeft: '15px'}}></span>
+                }
+            </div>
+        )
+    }
+}
