@@ -6,7 +6,8 @@ let Upvotes = require('./upvote.jsx'); // Our custom react component
 let ThreadItem = React.createClass({render() {
     let thread = this.props.data.data,
         styles = {display:'flex','alignItems':'center',padding:'4px'},
-        secondaryText = `submitted ${thread.created_utc} by ${thread.author} to ${thread.subreddit} `
+        date = new Date((thread.created_utc*1000)),
+        secondaryText = `${thread.subreddit}  ${thread.author}  ${thread.created_utc} ${thread.num_comments} comments`
 
     return (
       <div style={styles}>

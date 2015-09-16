@@ -4,9 +4,9 @@ let Upvotes = React.createClass({
   render() {
       return (
         <div>
-          <center>↑</center> <p/>
+          <center>⬆</center> <p/>
           {this.props.score}<p/>
-          <center>↓</center>
+          <center>⬇</center>
         </div>
       )
 }
