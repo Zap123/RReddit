@@ -11,7 +11,8 @@ let Story = React.createClass({render() {
     let styles2 = {
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      flex:'1'
     }
 
     return (
