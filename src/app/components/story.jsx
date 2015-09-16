@@ -5,7 +5,7 @@ import Upvotes   from './upvote.jsx'
 export default class Story extends React.Component {
 
     render() {
-        let itemStyle = {
+        let storyStyle = {
           display: 'flex',
           padding: '4px',
           alignItem: 'center'
@@ -19,15 +19,14 @@ export default class Story extends React.Component {
         }
 
         return (
-          <div style={itemStyle}>
-            <Upvotes score={this.props.score}/>
-            <Thumbnail src={this.props.thumbnail}/>
-            <div style={infoStyle}>
-              <em>{this.props.title}</em>
-              <p>{this.props.subtitle}</p>
+            <div style={storyStyle}>
+                <Upvotes score={this.props.score}/>
+                <Thumbnail src={this.props.thumbnail}/>
+                <div style={infoStyle}>
+                    <em>{this.props.title}</em>
+                    <p>{this.props.subtitle}</p>
+                </div>
             </div>
-
-          </div>
         )
     }
 }
