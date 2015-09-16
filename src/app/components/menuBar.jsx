@@ -3,7 +3,7 @@ import {AppBar} from 'material-ui';
 
 let MenuBar = React.createClass({render() {
     return (
-      <AppBar iconClassNameRight="muidocs-icon-navigation-expand-more" title="RRRReddit!"/>
+      <AppBar title="ЯReddit"/>
     );
   }
 });

@@ -6,17 +6,18 @@ let Thumbnail = React.createClass({render() {
     if (!src || src === 'self' || src === 'nsfw') {
       isImg = false
     }
-    let size = 100
+    let size = 80
 
     let styles = {
       height: size,
       width: size,
-      borderRadius: '10px',
+      borderRadius: '30px',
+      padding:'20px'
     }
 
     if (isImg) {
       return (
-        <img style={styles} src={src}/>
+          <div><img style={styles} src={src}/></div>
       )
     } else {
       return false
