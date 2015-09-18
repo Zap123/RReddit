@@ -1,11 +1,16 @@
 import React     from 'react'
 import Thumbnail from './thumbnail.jsx'
 import Upvotes   from './upvote.jsx'
+import {FlatButton} from 'material-ui'
 
 export default class Story extends React.Component {
 
     constructor(props) {
         super(props)
+    }
+
+    openComments(permalink) {
+      window.open('https://reddit.com' + permalink, '_blank')
     }
 
     render() {
@@ -29,6 +34,9 @@ export default class Story extends React.Component {
                 <div style={infoStyle}>
                     <em>{this.props.title}</em>
                     <p>{this.props.subtitle}</p>
+                      <FlatButton primary={true} 
+                                        label={this.props.comments.text}
+                                        onTouchTap={() => this.openComments(this.props.comments.url)} />
                 </div>
             </div>
         )
