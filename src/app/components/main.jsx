@@ -1,38 +1,41 @@
-import React      from 'react'
+import React from 'react'
 import ThreadList from './threadList.jsx'
-import { RaisedButton, Dialog, AppBar, Styles } from 'material-ui'
+import {
+    RaisedButton, Dialog, AppBar, Styles
+}
+from 'material-ui'
 
 let ThemeManager = new Styles.ThemeManager(),
     Colors = Styles.Colors
 
-export default class Main extends React.Component {
+export
+default class Main extends React.Component {
 
-    static childContextTypes = {
-        muiTheme: React.PropTypes.object
-    }
-
-    constructor(props) {
-        super(props)
-    }
-
-    getChildContext() {
-        return {
-            muiTheme: ThemeManager.getCurrentTheme()
+        static childContextTypes = {
+            muiTheme: React.PropTypes.object
         }
-    }
 
-    componentWillMount() {
-        ThemeManager.setPalette({
-            accent1Color: Colors.deepOrange500
-        })
-    }
+        constructor(props) {
+            super(props)
+        }
 
-    render() {
-        return (
-            <div>
-                <AppBar title="ЯReddit"/>
-                <ThreadList/>
-            </div>
+        getChildContext() {
+            return {
+                muiTheme: ThemeManager.getCurrentTheme()
+            }
+        }
+
+        componentWillMount() {
+            ThemeManager.setPalette({
+                accent1Color: Colors.deepOrange500
+            })
+        }
+
+        render() {
+                return ( < div >
+                        < AppBar title = "ЯReddit" / >
+                        < ThreadList / >
+                        < /div>
         )
     }
 }

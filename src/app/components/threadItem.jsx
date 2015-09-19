@@ -6,7 +6,8 @@ import {
 }
 from 'material-ui'
 
-export default class ThreadItem extends React.Component {
+export
+default class ThreadItem extends React.Component {
         constructor(props) {
             super(props)
         }

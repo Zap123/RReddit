@@ -1,6 +1,7 @@
 import request from 'superagent'
 
-export default class RedditAPI {
+export
+default class RedditAPI {
 
     static getHome() {
         return new Promise((resolve, reject) => {
@@ -8,7 +9,9 @@ export default class RedditAPI {
                 if (err)
                     reject(err)
                 else
-                    resolve({data: res.body.data.children})
+                    resolve({
+                        data: res.body.data.children
+                    })
             })
         })
     }
