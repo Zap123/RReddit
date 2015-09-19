@@ -1,7 +1,6 @@
 import request from 'superagent'
 
-export
-default class RedditAPI {
+export default class RedditAPI {
 
     static getHome() {
         return new Promise((resolve, reject) => {

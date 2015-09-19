@@ -1,15 +1,12 @@
 import React from 'react'
 import ThreadList from './threadList.jsx'
-import {
-    RaisedButton, Dialog, AppBar, Styles
-}
+import {RaisedButton, Dialog, AppBar, Styles}
 from 'material-ui'
 
 let ThemeManager = new Styles.ThemeManager(),
     Colors = Styles.Colors
 
-export
-default class Main extends React.Component {
+export default class Main extends React.Component {
 
         static childContextTypes = {
             muiTheme: React.PropTypes.object
@@ -32,10 +29,11 @@ default class Main extends React.Component {
         }
 
         render() {
-                return ( < div >
-                        < AppBar title = "ЯReddit" / >
-                        < ThreadList / >
-                        < /div>
-        )
-    }
+            return ( 
+                    <div>
+                        <AppBar title = "ЯReddit" />
+                        <ThreadList />
+                        </div>
+                   )
+        }
 }

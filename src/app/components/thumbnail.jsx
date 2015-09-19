@@ -26,16 +26,13 @@ default class Thumbnail extends React.Component {
                     marginRight: '15px'
                 }
 
-                return ( < div > {
-                            isImg ? < img src = {
-                                src
-                            }
-                            style = {
-                                styles
-                            }
-                            /> :
-                            <span style={{marginLeft: '15px'}}></span >
-                        } < /div>
+                return ( 
+                        <div> {
+                            isImg ? 
+                                <img src = {src} style = {styles} /> :
+                                <span style={{marginLeft: '15px'}} />
+                            } 
+                            </div>
         )
     }
 }

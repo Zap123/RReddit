@@ -1,13 +1,9 @@
 import React from 'react'
-import Reddit from '../utils/redditAPI.js'
+import Reddit from '../model/redditAPI.js'
 import ThreadItem from './threadItem.jsx'
-import {
-    List, ListItem, ListDivider
-}
-from 'material-ui';
+import {List, ListItem, ListDivider} from 'material-ui';
 
-export
-default class ThreadList extends React.Component {
+export default class ThreadList extends React.Component {
 
         constructor(props) {
             super(props)
@@ -23,19 +19,16 @@ default class ThreadList extends React.Component {
         }
 
         render() {
-                return ( < List > {
-                            this.state.data.map((item, index) => {
-                                    return <ThreadItem data = {
-                                        item
-                                    }
-                                    key = {
-                                        index
-                                    }
+            return ( 
+                    <List> 
+                        {this.state.data.map((item, index) => {
+                            return <ThreadItem 
+                                        data = {item}
+                                        key = {index}
                                     />
-                    })
+                            })
+                        }       
+                    </List>
+                   )
                 }
-            </List >
-                                )
-                            }
-
-                        }
+}

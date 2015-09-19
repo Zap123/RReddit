@@ -8,12 +8,12 @@ default class Upvotes extends React.Component {
     }
 
     render() {
-        return ( < div >
-            < center > ⬆ < /center> <p/ > {
-                this.props.score
-            } < p / >
-            < center > ⬇ < /center>
-            </div >
+        return ( 
+                <div>
+                    <center> ⬆ </center> <p/> 
+                    {this.props.score} <p/>
+                    <center> ⬇ </center>
+                </div>
         )
     }
 }
