@@ -9,55 +9,60 @@ from 'material-ui'
 export
 default class Story extends React.Component {
 
-        constructor(props) {
-            super(props)
+    constructor(props) {
+        super(props)
+    }
+
+    openComments(permalink) {
+        window.open('https://reddit.com' + permalink, '_blank')
+    }
+
+    render() {
+        let storyStyle = {
+            display: 'flex',
+            padding: '4px',
+            alignItem: 'center'
         }
 
-        openComments(permalink) {
-            window.open('https://reddit.com' + permalink, '_blank')
+        let infoStyle = {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            flex: '1'
         }
 
-        render() {
-                let storyStyle = {
-                    display: 'flex',
-                    padding: '4px',
-                    alignItem: 'center'
-                }
-
-                let infoStyle = {
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    flex: '1'
-                }
-
-                return ( < div style = {
-                            storyStyle
-                        } >
-                        < Upvotes score = {
-                            this.props.score
-                        }
-                        />
-                <Thumbnail src={this.props.thumbnail}/ >
-                        < div style = {
-                            infoStyle
-                        } >
-                        < em > {
-                            this.props.title
-                        } < /em>
+        return ( < div style = {
+                storyStyle
+            } >
+            < Upvotes score = {
+                this.props.score
+            }
+            />
+                        <Thumbnail src={this.props.thumbnail}/ >
+            < div style = {
+                infoStyle
+            } >
+            < em > {
+                this.props.title
+            } < /em>
                     <p>{this.props.subtitle}</p >
-                        < FlatButton primary = {
-                            true
-                        }
-                        label = {
-                            this.props.comments.text
-                        }
-                        onTouchTap = {
-                            () => this.openComments(this.props.comments.url)
-                        }
-                        />
-                </div >
-                        < /div>
+            < div >
+            < FlatButton primary = {
+                true
+            }
+            label = {
+                this.props.comments.text
+            }
+            onTouchTap = {
+                (e) => {
+                    e.stopPropagation(), //prevent from firing parent event
+                        this.openComments(this.props.comments.url)
+                }
+            }
+            / >
+                        < /div >
+            < /div>
+                        < /div >
         )
     }
 }
